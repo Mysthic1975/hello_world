@@ -13,15 +13,26 @@ class MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
+      theme: ThemeData(
+        brightness: Brightness.light,
+        scaffoldBackgroundColor: Colors.white, // Set the light theme background color
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black, // Color(0x000000FF) dark theme background color
+      ),
       themeMode: _isDarkMode ? ThemeMode.dark : ThemeMode.light,
       home: Scaffold(
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text('Hello World'),
+              const Text(
+                'Hello World',
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
               IconButton(
                 icon: Icon(_isDarkMode ? Icons.light_mode : Icons.dark_mode),
                 onPressed: () {
@@ -35,7 +46,12 @@ class MainAppState extends State<MainApp> {
           backgroundColor: Colors.red,
         ),
         body: const Center(
-          child: Text('Hello World!'),
+          child: Text(
+            'Hello World!',
+            style: TextStyle(
+              fontSize: 30,
+            ),
+          ),
         ),
       ),
     );
